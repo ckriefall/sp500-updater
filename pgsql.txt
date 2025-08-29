@@ -1,0 +1,16 @@
+sp500-updater/
+│
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── companies.json (created after first refresh)
+│   └── changes.log (created after first refresh)
+│
+└── frontend/
+    ├── package.json
+    ├── public/
+    │   └── index.html
+    └── src/
+        ├── index.js
+        ├── App.js
+        └── CompanyDetail.js
