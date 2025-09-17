@@ -1,0 +1,39 @@
+# Cheat Sheet for Managing sp500-updater in Git
+
+# Use this remote (HTTPS)
+# from your repo root
+git remote set-url origin https://github.com/ckriefall/sp500-updater.git
+git remote -v
+
+# First push (or re-push after fixing remote)
+git branch -M main
+git push -u origin main
+
+# Pull (keep history clean)
+git pull --rebase         # shorthand once upstream is set
+# or explicitly:
+git pull --rebase origin main
+
+# Typical workflow
+git checkout -b feature/refresh-ui
+# edit files...
+git add -A
+git commit -m "Improve refresh UI and logging"
+git push -u origin feature/refresh-ui    # open PR on GitHub
+
+# After merging the PR
+git checkout main
+git pull --rebase
+git branch -d feature/refresh-ui
+git push origin --delete feature/refresh-ui   # optional
+
+# Clone on another machine
+git clone https://github.com/ckriefall/sp500-updater.git
+cd sp500-updater
+git pull --rebase
+
+# (Optional) switch to SSH later
+# add your SSH key to GitHub first (Settings → SSH and GPG keys)
+git remote set-url origin git@github.com:ckriefall/sp500-updater.git
+
+# That’s it—those commands are wired to your exact repo.
